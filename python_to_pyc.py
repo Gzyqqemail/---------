@@ -55,10 +55,10 @@ def compile_python_files(source_dir, output_dir):
 
 if __name__ == "__main__":
     # 源目录：存放Python代码的目录
-    SOURCE_DIR = "/media/gzy/移动硬盘/python_program/双色球抽奖/"
+    SOURCE_DIR = "./src/"
     
     # 输出目录：编译后的Pyc文件将存放在此目录
-    OUTPUT_DIR = "/media/gzy/移动硬盘/python_program/python代码封装"
+    OUTPUT_DIR = "./pyc/"
     
     # 执行编译
     compile_python_files(SOURCE_DIR, OUTPUT_DIR)
