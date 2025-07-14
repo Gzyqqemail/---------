@@ -9,11 +9,23 @@ jobs:
   compile:
     runs-on: ubuntu-latest # 根据Runner环境选择，一般可选windows-latest等
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v4 # 检出仓库代码到Runner环境
+
       - name: Set up Python
         uses: actions/setup-python@v4 # 设置Python环境
         with:
           python-version: 3.8 # 根据代码所需Python版本填写，如3.8
+
+      - name: Install dependencies
+        run: pip install py_compile  # 安装必要依赖
+
       - name: Compile Python files
         run: python python_to_pyc.py # 运行你的编译脚本
+
+      - name: Upload compiled files
+        uses: actions/upload-artifact@v4  # 上传编译产物
+        with:
+          name: pyc-files
+          path: ./pyc/  # 对应 Python 脚本里的输出目录
