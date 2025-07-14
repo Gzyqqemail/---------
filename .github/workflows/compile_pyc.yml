@@ -12,10 +12,6 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v4 # 检出仓库代码到Runner环境
-        with:
-          # 允许推送更改回仓库
-          token: ${{ secrets.GHP_MCV9GHKSGD3GERNKTXIUQP6YMZ2ATV1EJC9C }}
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4 # 设置Python环境
