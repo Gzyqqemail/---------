@@ -18,9 +18,6 @@ jobs:
         with:
           python-version: 3.8 # 根据代码所需Python版本填写，如3.8
 
-      - name: Install dependencies
-        run: pip install py_compile  # 安装必要依赖
-
       - name: Compile Python files
         run: python python_to_pyc.py # 运行你的编译脚本
 
