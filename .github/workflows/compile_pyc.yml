@@ -12,6 +12,10 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v4 # 检出仓库代码到Runner环境
+        with:
+          # 允许推送更改回仓库
+          token: ${{ secrets.GHP_MCV9GHKSGD3GERNKTXIUQP6YMZ2ATV1EJC9C }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4 # 设置Python环境
@@ -26,3 +30,16 @@ jobs:
         with:
           name: pyc-files
           path: ./pyc/  # 对应 Python 脚本里的输出目录
+
+          #上传pyc文件
+      - name: Commit and push pyc files
+        run: |
+          git config user.name gzy
+          git config user.email zy_gao2024@163.com
+          git add ./pyc/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-commit compiled pyc files"
+            git push
+          fi
