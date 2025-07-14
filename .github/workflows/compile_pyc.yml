@@ -1,0 +1,19 @@
+name: Compile Python to Pyc
+on:
+  push:
+    branches:
+      - main # 可根据实际情况修改为需要监控的分支，如master等
+    paths:
+      - 'src/**/*.py' # 监控python_to_pyc.py文件的变化
+jobs:
+  compile:
+    runs-on: windows-latest # 根据Runner环境选择，一般可选windows-latest等
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # 检出仓库代码到Runner环境
+      - name: Set up Python
+        uses: actions/setup-python@v4 # 设置Python环境
+        with:
+          python-version: 3.8 # 根据代码所需Python版本填写，如3.8
+      - name: Compile Python files
+        run: python python_to_pyc.py # 运行你的编译脚本
