@@ -2,7 +2,7 @@ name: Compile Python to Pyc
 on:
   push:
     branches:
-      - main # 可根据实际情况修改为需要监控的分支，如master等
+      - master # 可根据实际情况修改为需要监控的分支，如master等
     paths:
       - 'src/**/*.py' # 监控python_to_pyc.py文件的变化
 jobs:
