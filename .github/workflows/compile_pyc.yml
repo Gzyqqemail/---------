@@ -7,7 +7,7 @@ on:
       - 'src/**/*.py' # 监控python_to_pyc.py文件的变化
 jobs:
   compile:
-    runs-on: windows-latest # 根据Runner环境选择，一般可选windows-latest等
+    runs-on: ubuntu-latest # 根据Runner环境选择，一般可选windows-latest等
     steps:
       - name: Checkout code
         uses: actions/checkout@v4 # 检出仓库代码到Runner环境
